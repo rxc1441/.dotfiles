@@ -4,7 +4,7 @@
 
 
 echo "============================================================"
-echo "🖥️  Blmquist Shell disk cleanup running..."
+echo "🖥️  Almquist Shell disk cleanup running..."
 echo "============================================================"
 echo "🔍 Initial disk usage in /home/$USER"
 echo "------------------------------------------------------------"
