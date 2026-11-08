@@ -1,5 +1,5 @@
 #
-# .shrc - bourne shell startup file 
+# .shrc - Almquist shell startup file 
 #
 # This file will be used if the shell is invoked for interactive use and
 # the environment variable ENV is set to this file.
@@ -66,7 +66,7 @@ bind ^[[5~ ed-move-to-beg
 bind ^[[6~ ed-move-to-end
 
 # Set terminal prompt: ``username@hostname:directory $ '' 
-PS1="\[\e[1;32m\]\u\[\e[32m\]@\h:\[\e[34m\]\w \[\e[0m\]\$ "
+PS1="\[\e[1;32m\]\u\[\e[32m\]@\h:\[\e[34m\]\w \[\e[0m\]# "
 
 # search path for cd(1)
 # CDPATH=:$HOME
