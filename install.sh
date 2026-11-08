@@ -11,7 +11,7 @@ echo "🛠️ Installing dotfiles..."
 have()   { command -v "$1" >/dev/null 2>&1; }
 is_wsl() { grep -qi microsoft /proc/version 2>/dev/null; }
 
-# realpath/readlink -f portability (FreeBSD sometimes lacks -f on readlink)
+# realpath/readlink -f portability (BSD operating systems sometimes lacks -f on readlink)
 resolve_path() {
   # Usage: resolve_path <path>
   # Prints an absolute canonical path or echoes the input if resolution fails.

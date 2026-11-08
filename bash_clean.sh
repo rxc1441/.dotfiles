@@ -1,5 +1,5 @@
 #!/bin/bash
-# This bash script cleans cached memory on your machine (Hugging Face,
+# This Bash script cleans cached memory on your machine (Hugging Face,
 # Pixi, pip, KaggleHub) and orphaned Python/Jupyter files from $HOME.
 
 echo "============================================================"

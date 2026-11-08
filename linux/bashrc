@@ -64,7 +64,7 @@ _build_prompt() {
 
     # Print a snug layout
     # Color spill allows the @ sign to cleanly inherit user colors natively
-    printf "%s%s@%s:%s%s%s # " \
+    printf "%s%s@%s:%s%s%s| " \
         "${prefix}" \
         "${_c_user}\u" \
         "${_c_host}\h${_c_reset}" \
