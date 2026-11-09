@@ -1,7 +1,7 @@
-# Dotfile configs
-[[ -f ~/.aliases ]]  && . ~/.aliases
-[[ -f ~/.exports ]]   && . ~/.exports
-[[ -f ~/.functions ]] && . ~/.functions
+# Dotfile configs (with silent error buffers for background environment loaders)
+[[ -f ~/.aliases ]]  && . ~/.aliases 2>/dev/null
+[[ -f ~/.exports ]]   && . ~/.exports 2>/dev/null
+[[ -f ~/.functions ]] && . ~/.functions 2>/dev/null
 
 # Default $EDITOR
 export EDITOR='nano'
@@ -117,5 +117,4 @@ fi
 # NVM init
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"
-
 
