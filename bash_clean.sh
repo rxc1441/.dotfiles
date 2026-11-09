@@ -13,7 +13,7 @@ echo ""
 # Pixi
 echo "🧹 Cleaning all .pixi directories..."
 
-# Capture all .pixi paths first (no pipe in loop)
+# .pixi path dirs
 mapfile -t pixi_dirs < <(find ~ -maxdepth 6 -type d -name ".pixi" 2>/dev/null)
 
 for pixi_dir in "${pixi_dirs[@]}"; do
@@ -22,7 +22,7 @@ for pixi_dir in "${pixi_dirs[@]}"; do
 
   before=$(du -sh "$pixi_dir" 2>/dev/null | cut -f1 || echo "0B")
 
-  # Clean deep cache
+  # Clean deep cache dirs
   find "$pixi_dir/envs" -mindepth 4 -delete 2>/dev/null || true
   find "$pixi_dir/activation-env-v0" -mindepth 1 -delete 2>/dev/null || true
 
@@ -69,14 +69,15 @@ if [ -d "$HOME/.cache/pip" ]; then
   rm -rf "$HOME/.cache/pip"
 fi
 
-# __pycache__ and .ipynb_checkpoints across home
+# __pycache__ and .ipynb_checkpoints artifacts
 echo ""
 echo "🧹 Removing __pycache__ and Jupyter checkpoints..."
 find "$HOME" -type d -name "__pycache__" -exec rm -rf {} +
 find "$HOME" -type d -name ".ipynb_checkpoints" -exec rm -rf {} +
 
-# General ~/.cache Cleanup. Final cleanup
+# ~/.cache dirs
 if [ -d "$HOME/.cache" ]; then
+  echo ""
   echo "🧹 Cleaning up ~/.cache directory..."
   before=$(du -sh "$HOME/.cache" | cut -f1)
 

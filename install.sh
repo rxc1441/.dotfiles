@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # -----------------------------
-# Dotfiles installer (WSL-safe)
+# Dotfiles Installer
 # -----------------------------
 
 echo "🛠️ Installing dotfiles..."
@@ -97,7 +97,7 @@ ensure_bash_profile_sources_bashrc() {
   fi
 }
 
-# --- Detect Operating System ---
+# --- Detect OS ---
 OS=""
 if (grep -qi "FreeBSD" /etc/os-release 2>/dev/null) || uname | grep -qi "FreeBSD" >/dev/null 2>&1; then
   OS="freebsd"
@@ -147,7 +147,7 @@ ensure_bash_profile_sources_bashrc
 
 # --- Optional: distro-aware Fastfetch install (Linux/WSL/FreeBSD) ---
 install_fastfetch_maybe() {
-  # Controlled via DOTFILES_INSTALL_FASTFETCH=1
+  # DOTFILES_INSTALL_FASTFETCH=1
   if [[ "${DOTFILES_INSTALL_FASTFETCH:-0}" != "1" ]]; then
     return 0
   fi
@@ -202,7 +202,7 @@ run_bootstrap_helpers() {
   fi
 }
 
-# --- WSL niceties ---
+# --- WSL ---
 wsl_tips() {
   if [[ "$OS" == "wsl" ]]; then
     if [[ ! -f /etc/wsl.conf ]] || ! grep -q '^\[automount\]' /etc/wsl.conf 2>/dev/null; then
