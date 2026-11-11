@@ -81,6 +81,7 @@ alias update='sudo pacman -Syu'
 alias google-chrome='google-chrome-stable --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations --force-device-scale-factor=1.5 & disown'
 alias kde='sudo systemctl start sddm'
 alias bat='batcat'
+alias batcat='bat'
 alias clear='printf "\\033[2J\\033[;H"'
 
 # Source paths
@@ -90,10 +91,11 @@ export MATPLOTLIBRC=~/.config/matplotlib
 export TERMINFO=/usr/share/terminfo
 export GPG_TTY=$(tty)
 export GPG_TTY=/dev/pts/1
-export PATH="$HOME/.pixi/bin:$PATH"
 export GPG_TTY="$(tty)"
 export GPG_TTY=/dev/pts/0
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/bin:$PATH"
+export PATH="$HOME/.pixi/bin:$PATH"
 export PATH=$PATH:~/go/bin
 export ENABLE_MOJO_STACK_TRACE_ON_ERROR=1
 export GDK_SCALE=2
@@ -118,3 +120,5 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"
 
+
+export PATH="/home/rxc1441/.pixi/bin:$PATH"
