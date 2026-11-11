@@ -17,7 +17,7 @@ export PS1
 # Bash history (.bash_history)
 shopt -s histappend
 
-# Detect WSL
+# Check for WSL
 _is_wsl=false
 if grep -qi microsoft /proc/version 2>/dev/null || [[ -n $WSL_DISTRO_NAME ]]; then
   _is_wsl=true
@@ -54,7 +54,7 @@ _git_branch() {
 # Optional: virtualenv name
 _pyenv_segment='${VIRTUAL_ENV:+($(basename "$VIRTUAL_ENV")) }'
 
-# Unified prompt builder that handles Pixi cleanly
+# Prompt builder handles Pixi cleanly
 _build_prompt() {
     local prefix=""
     # Check if we're in a pixi environment, but ignore the "default" environment name
@@ -73,7 +73,7 @@ _build_prompt() {
         "$(_git_branch)"
 }
 
-# Build TUI Prompt
+# Build Terminal Prompt
 export PROMPT_COMMAND="history -a; history -c; history -r; PS1=\$(_build_prompt)"
 
 # Aliases
@@ -81,7 +81,7 @@ alias update='sudo pacman -Syu'
 alias google-chrome='google-chrome-stable --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations --force-device-scale-factor=1.5 & disown'
 alias kde='sudo systemctl start sddm'
 alias bat='batcat'
-alias batcat='bat'
+alias bat='batcat'
 alias clear='printf "\\033[2J\\033[;H"'
 
 # Source paths
@@ -104,7 +104,21 @@ export PATH="$HOME/.local/share/zig:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PIXI_NO_TELEMETRY=1
 
-# Conda init
+# bat
+if [ -x /usr/bin/batcat ]; then
+    mkdir -p "$HOME/.local/bin"
+
+    if [ ! -L "$HOME/.local/bin/bat" ] && [ ! -e "$HOME/.local/bin/bat" ]; then
+        ln -s /usr/bin/batcat "$HOME/.local/bin/bat"
+    fi
+
+    case ":$PATH:" in
+        *:$HOME/.local/bin:*) ;;
+        *) export PATH="$HOME/.local/bin:$PATH" ;;
+    esac
+fi
+
+# Conda
 __conda_setup="$('/home/rc/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [[ $? -eq 0 ]]; then
     eval "$__conda_setup"
@@ -116,7 +130,7 @@ else
     fi
 fi
 
-# NVM init
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"
 
