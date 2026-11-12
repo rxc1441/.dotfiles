@@ -136,3 +136,4 @@ export NVM_DIR="$HOME/.nvm"
 
 
 export PATH="/home/rxc1441/.pixi/bin:$PATH"
+export PATH="/home/rc/.pixi/bin:$PATH"
