@@ -78,10 +78,9 @@ export PROMPT_COMMAND="history -a; history -c; history -r; PS1=\$(_build_prompt)
 
 # Aliases
 alias update='sudo pacman -Syu'
+alias batcat='bat'
 alias google-chrome='google-chrome-stable --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations --force-device-scale-factor=1.5 & disown'
 alias kde='sudo systemctl start sddm'
-alias bat='batcat'
-alias bat='batcat'
 alias clear='printf "\\033[2J\\033[;H"'
 
 # Source paths
